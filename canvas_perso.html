@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon Canvas</title>
+	<style type="text/css">
+		body{
+			color: #ffffff;
+			text-align: center;
+			background: #000000;
+		}
+		div{
+			margin:auto;
+			width: 500px;
+		}
+		#start{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+
+		<button id="start">Start</button>
+	</div>
+	<script type="text/javascript">
+
+		var canvas = document.getElementById('myCanvas');
+		var ctx = canvas.getContext('2d');
+		var balls = []; // le tableau de couleur qui sera utilisé plus tard 
+
+		function bg () {
+			ctx.beginPath(); // demarre le dessin
+			ctx.fillStyle = '#ffffff'; // la couleur de notre context 
+			ctx.fillRect(0,0,500,500); // taille et position 
+			ctx.closePath(); // fermeture du dessin
+		}
+		bg(); // appelle de la fonction bg
+
+		function createBall (posX, posY, color, radius){
+			ctx.beginPath(); // demarre le dessin
+			ctx.fillStyle = "#0066ff";
+			ctx.arc(posX,posY,radius,0, 2*Math.PI); // dessine un rond en partant du centre 
+			ctx.fill();		 // la couleur appliqué
+			ctx.closePath(); // fermeture du dessin 
+		}
+
+		function moveBall(ball){
+			ball.x = ball.x + ball.vx;
+			ball.y = ball.y + ball.vy;
+
+			if (ball.x >= 490 || ball.x <= 10) {
+				ball.vx = ball.vx * -1; 
+			}
+			if (ball.y >= 490 || ball.y <= 10) {
+				ball.vy = ball.vy * -1
+			}
+		}
+
+		// ici on appelle les functions au préalable qu'on créé
+		function anim () { 
+			bg();	
+			for (let i = 0; i < balls.length; i ++ ){
+				let b = balls[i];
+				createBall(b.x, b.y, b.c, b.r);	
+				moveBall();
+			}	   
+
+			window.requestAnimationFrame(anim); // auto appelle la fonction
+		}
+
+		function initBalls (nbBalls){ // initialise les variables, et on assigne des valeurs 
+			let colors = ["red","blue","green","pink","purple","yellow"]; // creation d'un tableau de couleurs différente
+			for (let i = 0; i < nbBalls; i ++){ // boucle d'ajout de balles
+
+				let speed = Math.floor(Math.random()*5 + 2); // randomisation de la velocité entre 0 et 7
+				let angleRandom = Math.round(Math.random()*360); // ouverture de l'angle 
+				let radian = angleRandom * Math.PI / 180; // angle de direction aléatoire
+				let colorsRand = Math.floor(Math.random()* colors.length); // choix random d'une couleur du tableau
+				let ball = {
+					x : Math.floor(Math.random()*450 + 50), // randomisation d'une position x 
+					y : Math.floor(Math.random()*450 + 50),	// randomisation d'une position y 
+					r : Math.floor(Math.random()*50+ 20), // randomisation du radiant
+					s : speed,							  // variable speed qui ne bouge pas
+					c : colors[colorsRand], 				  // pioche d'une couleur dans le tableau
+					vx : Math.cos(radian) * speed,		  // multiplication du radiant en fonction de x par la velocité
+					vy : Math.sin(radian) * speed, 		// multiplication du radiant en fonction de y par la velocité
+				};
+				balls.push(ball); // ajout des balles en boucle jusqu'au nombre donné
+			}
+			
+		}
+
+		start.onclick = function() {
+			initBalls(20);
+			anim();
+		}
+
+	</script>
+</body>
+</html>
