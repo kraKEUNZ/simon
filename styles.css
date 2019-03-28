@@ -1,0 +1,46 @@
+body{
+	margin:0;
+	padding:0;
+}
+#fond{
+	width:100vw;
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.container{
+	position:relative;
+	background-image:url("./images/simonBG.png");
+	background-size: cover;
+	width : 427px;
+	height: 427px;
+}
+#start{
+	position: absolute;
+    /* background-color: #21f521; */
+    width: 25px;
+    height: 25px;
+    margin-top: 35px;
+    margin-left: 25px;
+    border-radius: 50%;
+	cursor:pointer;
+	
+}
+
+#blue{
+	width:210px;
+	height:210px;
+}
+#green{
+	width:210px;
+	height:210px;
+}
+#red{
+	width:210px;
+	height:210px;
+}
+#yellow{	
+	width:210px;
+	height:210px;
+}

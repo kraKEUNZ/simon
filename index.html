@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<Meta charset="UTF-8">
+		<link rel="stylesheet" href="styles.css"/>
+		<title>Jeu du Simon</title>
+		 <script  src="jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="fond">
+			<div class="container">
+				<div >
+					<img class="img" id="green" src ="./images/green.png" data-lcolor = "./images/l_green.png" data-color = "./images/green.png" data-sound="./sounds/son1.mp3"/>
+					<img class="img" id="red" src ="./images/red.png" data-lcolor = "./images/l_red.png" data-color = "./images/red.png" data-sound="./sounds/son2.mp3"/>
+				</div>
+				<div>
+					<img class="img" id="yellow" src ="./images/yellow.png" data-lcolor = "./images/l_yellow.png" data-color = "./images/yellow.png" data-sound="./sounds/son3.mp3"/>
+					<img class="img" id="blue"src ="./images/blue.png" data-lcolor = "./images/l_blue.png" data-color = "./images/blue.png" data-sound="./sounds/son4.mp3"/>
+				</div>
+			</div>
+			<div id="start"></div>
+		</div>
+
+		<audio src="./sounds/son1.mp3"></audio>
+		<audio src="./sounds/son2.mp3"></audio>
+		<audio src="./sounds/son3.mp3"></audio>
+		<audio src="./sounds/son4.mp3"></audio>
+
+	<script type="text/javascript" src="main.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.img').each(function(){
+				let color = $(this).attr('data-color');
+				let lightColor = $(this).attr('data-lcolor')
+				let soundPath = $(this).attr('data-sound');
+				let htmlEl = $(this)[0];
+				new Button(htmlEl, color, lightColor, soundPath);
+			});
+		})
+	</script>
+	</body>
+</html>
