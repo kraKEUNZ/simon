@@ -1,0 +1,89 @@
+body{
+	margin:0;
+	padding:0;
+}
+#fond{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#resultats{
+	display: flex;
+	align-items: center;
+	font-size: 25px;
+	margin: 20px;
+	padding: 0;
+	font-weight: 800;
+}
+#whoPlay{
+	display: flex;
+	width: 500px;
+	height: 100px;
+	justify-content: space-around;
+	font-size: 20px;
+	font-weight: bold;
+	flex-direction: column;
+	margin: 20px;
+}
+#listen{
+	display: none;
+}
+#play{
+	display: none;
+}
+#perdu{
+	font-size: 25px;
+	font-weight: bold;
+	margin:20px;
+	display: none;
+}
+.container{
+	position:relative;
+	background-image:url("./images/simonBG.png");
+	background-size: cover;
+	width : 427px;
+	height: 427px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#start{
+	position: absolute;
+	width: 25px;
+    height: 25px;
+    margin-top: 35px;
+    margin-left: 25px;
+    border-radius: 50%;
+	cursor:pointer;
+	
+}
+
+#blue{
+	width:210px;
+	height:210px;
+}
+#green{
+	width:210px;
+	height:210px;
+}
+#red{
+	width:210px;
+	height:210px;
+}
+#yellow{	
+	width:210px;
+	height:210px;
+}
+#rejouer{
+	height: 100px;
+	background: #0087ff;
+	color: white;
+	width: 100px;
+	align-self: center;
+	display:none;
+}
