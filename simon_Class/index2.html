@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <Meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Jeu du Simon</title>
+    <script  src="./jquery.min.js"></script>
+</head>
+<body>
+    <div id="fond">
+        <div class="container">
+            <div>
+                <img id="green" data-sound="sounds/son1.mp3" />
+                <img id="red" data-sound="sounds/son2.mp3" >
+            </div>
+            <div>
+                <img id="yellow" data-sound="sounds/son3.mp3" />
+                <img id="blue" data-sound="sounds/son4.mp3" />
+            </div>
+        </div>
+        <div id="start"></div>
+    </div>
+    <audio src="sounds/son1.mp3"></audio>
+    <audio src="sounds/son2.mp3"></audio>
+    <audio src="sounds/son3.mp3"></audio>
+    <audio src="sounds/son4.mp3"></audio>
+    <script src="main2.js"></script>
+</body>
+</html>
