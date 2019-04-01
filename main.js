@@ -12,7 +12,7 @@ var green = './images/green.png';
 var blue = './images/blue.png';
 var red = './images/red.png';
 var yellow = './images/yellow.png';
-
+//test
 var imgRed = document.getElementById("red");
 var imgBlue = document.getElementById("blue");
 var imgYellow = document.getElementById("yellow");
